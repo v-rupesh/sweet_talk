@@ -1,16 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SweetTalk</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>SweetTalk</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <!-- Add Semantic UI CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css">
+
+  <!-- Add jQuery (required for Semantic UI) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Add Semantic UI JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.js"></script>
+  
+  <%= javascript_importmap_tags %>
+</head>
+
+<body>
+<div class="ui inverted menu">
+<a class="item">
+  Home
+</a>
+<a class="item">
+  Messages
+</a>
+<div class="right menu">
+  <div class="ui dropdown item">
+    Language <i class="dropdown icon"></i>
+    <div class="menu">
+      <a class="item">English</a>
+      <a class="item">Russian</a>
+      <a class="item">Spanish</a>
+    </div>
+  </div>
+  <div class="item">
+      <div class="ui primary button">Sign Up</div>
+  </div>
+</div>
+</div>
+
+  <%= yield %>
+  <!-- Initialize Semantic UI dropdowns -->
+<script>
+  $(document).ready(function() {
+    $('.ui.dropdown').dropdown();
+  });
+</script>
+</body>
 </html>
+
