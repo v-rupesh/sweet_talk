@@ -3,6 +3,7 @@
 <head>
   <title>SweetTalk</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= favicon_link_tag %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -18,38 +19,18 @@
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.js"></script>
   
   <%= javascript_importmap_tags %>
+  <%= javascript_include_tag 'application' %>
 </head>
 
 <body>
-<div class="ui inverted menu">
-<a class="item">
-  Home
-</a>
-<a class="item">
-  Messages
-</a>
-<div class="right menu">
-  <div class="ui dropdown item">
-    Language <i class="dropdown icon"></i>
-    <div class="menu">
-      <a class="item">English</a>
-      <a class="item">Russian</a>
-      <a class="item">Spanish</a>
+<div class="ui small inverted menu">
+      <div class="ui container">
+        <%= render 'layouts/nav' %>
+      </div>
+</div>
+    <div class="ui container">
+      <%= render 'layouts/messages' %>
+       <%= yield %>
     </div>
-  </div>
-  <div class="item">
-      <div class="ui primary button">Sign Up</div>
-  </div>
-</div>
-</div>
-
-  <%= yield %>
-  <!-- Initialize Semantic UI dropdowns -->
-<script>
-  $(document).ready(function() {
-    $('.ui.dropdown').dropdown();
-  });
-</script>
 </body>
 </html>
-
